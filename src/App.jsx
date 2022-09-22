@@ -116,7 +116,7 @@ function App() {
 
                <figure>
                   <img src={html} />
-                  <label>NodeJs</label>
+                  <label>HTML</label>
                </figure>
 
                <figure>
