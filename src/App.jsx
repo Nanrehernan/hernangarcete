@@ -121,7 +121,7 @@ function App() {
 
                <figure>
                   <img src={sql} />
-                  <label>NodeJs</label>
+                  <label>SQL</label>
                </figure>
 
                <figure>
