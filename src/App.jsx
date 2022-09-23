@@ -1,6 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
 import { FaCode, FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { IoIosMenu } from "react-icons/io";
 import reactjs from "./assets/react.svg";
 import nodejs from "./assets/node.svg";
 import html from "./assets/html.svg";
@@ -15,25 +16,34 @@ import pokemon from "./assets/pokemon.png";
 import orgChart from "./assets/org-chart.png";
 import cv from "./assets/hernangarcete.pdf";
 
-const initialConfig = {
-   socialSize: 30,
-   color: "#eeeeee",
-};
-
 function App() {
+   const [menu, setMenu] = useState(false)
+
+   const handleMenuClick = ()=> setMenu(false)
    return (
       <Fragment>
-         <header>
-            <nav>
-               <a href="#">Inicio</a>
-               <a href="#sobremi">Sobre mí</a>
-               <a href="#proyectos">Proyecto</a>
-               <a href="#contacto">Contacto</a>
+         <header className="header">
+            <button className="btn btn-menu" onClick={()=> setMenu(!menu)}>
+               <IoIosMenu className="icon-menu" />
+            </button>
+            <nav className={menu ? "nav mostrar-nav" : "nav"}>
+               <a className="btn btn-nav" href="#inicio" onClick={handleMenuClick}>
+                  Inicio
+               </a>
+               <a className="btn btn-nav" href="#sobremi" onClick={handleMenuClick}>
+                  Sobre mí
+               </a>
+               <a className="btn btn-nav" href="#proyectos" onClick={handleMenuClick}>
+                  Proyecto
+               </a>
+               <a className="btn btn-nav" href="#contacto" onClick={handleMenuClick}>
+                  Contacto
+               </a>
             </nav>
          </header>
-         <section className="inicio">
-            <div className="box">
-               <FaCode color="#2196f3" fontSize={100} />
+         <section className="inicio" id="inicio">
+            <div className="box-inicio">
+               <FaCode className="logo" />
                <div className="box-info">
                   <h1>
                      Hola!!, soy <span>Hernan Garcete</span>, desarrollador{" "}
@@ -45,34 +55,28 @@ function App() {
                            href="https://github.com/Nanrehernan"
                            target="_blank"
                            rel="noopener"
+                           className="btn-social"
                         >
-                           <FaGithub
-                              fontSize={initialConfig.socialSize}
-                              color={initialConfig.color}
-                           />
+                           <FaGithub className="icon-social" />
                         </a>
                         <a
                            href="https://www.linkedin.com/in/hernan-garcete-371109164/"
                            target="_blank"
                            rel="noopener"
+                           className="btn-social"
                         >
-                           <FaLinkedinIn
-                              fontSize={initialConfig.socialSize}
-                              color={initialConfig.color}
-                           />
+                           <FaLinkedinIn className="icon-social" />
                         </a>
                         <a
                            href="https://wa.me/595991305595"
                            target="_blank"
                            rel="noopener"
+                           className="btn-social"
                         >
-                           <FaWhatsapp
-                              fontSize={initialConfig.socialSize}
-                              color={initialConfig.color}
-                           />
+                           <FaWhatsapp className="icon-social" />
                         </a>
 
-                        <a className="cv" href={cv} target="_blank">
+                        <a className="btn" href={cv} target="_blank">
                            Ver CV
                         </a>
                      </div>
@@ -83,66 +87,100 @@ function App() {
 
          <section id="sobremi">
             <h2>Sobre mí</h2>
-            <div className="texto-box">
-               <p>
-                  Mi nombre es <span>Hernan Garcete Barrios</span>. Soy
-                  desarrollador <span>javascript</span> y amante del desarrollo
-                  móvil. He trabajado en mis propios proyectos con{" "}
-                  <span>ReactJS</span>, <span>React Native</span> y{" "}
-                  <span>NodeJs</span>, utilizando bases de datos en{" "}
-                  <span>MYSQL</span>. También estoy preparado para aprender
-                  nuevas tecnologías sin ningún problema. Mis pasatiempos esta
-                  relacionado en aprender y buscar sobre las novedades
-                  tecnologicas. Me considero una persona muy implicada y con
-                  capacidad para detectar y solucionar problemas.
-               </p>
-            </div>
+            <p>
+               Mi nombre es <span>Hernan Garcete Barrios</span>. Soy
+               desarrollador <span>javascript</span> y amante del desarrollo
+               móvil. He trabajado en mis propios proyectos con{" "}
+               <span>ReactJS</span>, <span>React Native</span> y{" "}
+               <span>NodeJs</span>, utilizando bases de datos en{" "}
+               <span>MYSQL</span>. También estoy preparado para aprender nuevas
+               tecnologías sin ningún problema. Mis pasatiempos esta relacionado
+               en aprender y buscar sobre las novedades tecnologicas. Me
+               considero una persona muy implicada y con capacidad para detectar
+               y solucionar problemas.
+            </p>
             <h3>Tecnologías</h3>
-            <div className="habilidades">
-               <figure>
-                  <img src={reactjs} />
-                  <label>ReactJs</label>
-               </figure>
+            <div className="box-tecnologia">
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={reactjs} alt="reactjs" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>ReactJs</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={nodejs} />
-                  <label>NodeJs</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={nodejs} alt="nodejs" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>NodeJs</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={javascript} />
-                  <label>Javascript</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={javascript} alt="javascript" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>Javascript</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={html} />
-                  <label>HTML</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={html} alt="html" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>HTML</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={sql} />
-                  <label>SQL</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={css} alt="css" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>CSS</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={mysql} />
-                  <label>MYSQL</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={sql} alt="sql" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>SQL</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={figma} />
-                  <label>Figma</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={mysql} alt="mysql" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>MYSQL</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={css} />
-                  <label>CSS</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={git} alt="git" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>Git</p>
+                  </div>
+               </div>
 
-               <figure>
-                  <img src={git} />
-                  <label>Git</label>
-               </figure>
+               <div className="card">
+                  <div className="img-tecnologia">
+                     <img src={figma} alt="figma" />
+                  </div>
+                  <div className="titulo-tecnologia">
+                     <p>Figma</p>
+                  </div>
+               </div>
             </div>
          </section>
 
@@ -160,8 +198,9 @@ function App() {
                      <a
                         href="https://nanrehernan.github.io/pokemon-react/"
                         target="_blank"
+                        className="btn"
                      >
-                        Ver
+                        Ver Demo
                      </a>
                   </div>
                </div>
@@ -177,8 +216,9 @@ function App() {
                      <a
                         href="https://nanrehernan.github.io/lista-de-tareas-javascript/"
                         target="_blank"
+                        className="btn"
                      >
-                        Ver
+                        Ver Demo
                      </a>
                   </div>
                </div>
@@ -194,6 +234,7 @@ function App() {
                      <a
                         href="https://github.com/Nanrehernan/react-org-chart"
                         target="_blank"
+                        className="btn"
                      >
                         Ver Git Hub
                      </a>
@@ -211,29 +252,28 @@ function App() {
                      href="https://github.com/Nanrehernan"
                      target="_blank"
                      rel="noopener"
+                     className="btn-social"
                   >
-                     <FaGithub
-                        fontSize={initialConfig.socialSize}
-                        color={initialConfig.color}
-                     />
+                     <FaGithub className="icon-social" />
                   </a>
                   <a
                      href="https://www.linkedin.com/in/hernan-garcete-371109164/"
                      target="_blank"
+                     rel="noopener"
+                     className="btn-social"
                   >
-                     <FaLinkedinIn
-                        fontSize={initialConfig.socialSize}
-                        color={initialConfig.color}
-                     />
+                     <FaLinkedinIn className="icon-social" />
                   </a>
-                  <a href="https://wa.me/595991305595" target="_blank">
-                     <FaWhatsapp
-                        fontSize={initialConfig.socialSize}
-                        color={initialConfig.color}
-                     />
+                  <a
+                     href="https://wa.me/595991305595"
+                     target="_blank"
+                     rel="noopener"
+                     className="btn-social"
+                  >
+                     <FaWhatsapp className="icon-social" />
                   </a>
 
-                  <a className="cv" href={cv} target="_blank">
+                  <a className="btn" href={cv} target="_blank">
                      Ver CV
                   </a>
                </div>
