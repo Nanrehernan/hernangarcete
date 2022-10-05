@@ -68,7 +68,7 @@ export const proyectoList = [
     {
         titulo: "Coin",
         informacion: "Proyecto realizado en React Native para ver los cambios en precio de las monedas",
-        link: "https://github.com/Nanrehernan/react-org-chart",
+        link: "https://github.com/Nanrehernan/coin",
         textoLink: "Ver Git Hub",
         imagen: coin
     }
