@@ -2,7 +2,7 @@ const Proyecto = ({ proyecto }) => {
     return (
         <div className="card-proyecto">
             <div className="card-header">
-                <img src={proyecto.imagen} />
+                <img src={proyecto.imagen} className="img-proyecto" />
             </div>
             <div className="card-footer">
                 <div>

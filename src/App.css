@@ -305,4 +305,9 @@ section{
         justify-content: space-between;
         align-items: center;
     }
+
+    .img-proyecto{
+        object-fit: cover;
+        object-position: top;
+    }
 }
