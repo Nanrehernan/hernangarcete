@@ -4,7 +4,9 @@ import Nav from "./Nav"
 
 const Header = () => {
     const [menu, setMenu] = useState(false)
-    const handleMenuClick = ()=> setMenu(false)
+    const handleMenuClick = ()=> {
+        setMenu(false)
+    }
     return (
         <header className="header">
             <button className="btn btn-menu" onClick={() => setMenu(!menu)}>
