@@ -2,7 +2,7 @@
 
 ¡Bienvenido a mi portafolio web! Aquí podrás encontrar información sobre mis proyectos, habilidades y experiencia profesional.
 
-Puedes visitar mi portafolio en el siguiente enlace: [Portafolio](https://hernangarcete.vercel.app/)
+Puedes visitar mi portafolio en el siguiente enlace: [https://hernangarcete.vercel.app](https://hernangarcete.vercel.app/)
 
 ¡Gracias por tu visita!
 
